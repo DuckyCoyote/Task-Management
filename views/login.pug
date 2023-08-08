@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/styles/css-bootstrap/bootstrap.css')
+    title Login
+  body
+    main.bg-black.bg-gradient.vh-100.d-flex.justify-content-center.align-items-center.w-100
+      section.rounded.bg-white.d-flex.h-75
+        .d-flex.justify-content-center.align-items-center.w-50.h-100
+          img.w-100.h-75.rounded.img-fluid(src='http://localhost:3000/img/welcome.png')   
+        .d-flex.justify-content-center.align-items-center.w-50.h-100   
+          form#form.shadow-md.p-5(method='POST' action='http://localhost:3000/')
+            h1.fs-4.mb-3 Sign In   
+            if message
+              p.text-danger.text-center.fw-bold.font-monospace.fs-7 #{message}
+            .mb-3.email-container
+              label.form-label(for='email') Email
+              input#email.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='email', placeholder='Ej. name@mail.com' name='email')
+            .mb-3.password-container
+              label.form-label(for='password') Password
+              input#password.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='password', placeholder='Your password...' name='password')
+            .flex.items-center.justify-between
+              button#button-submit.btn.btn-success.font-weight-bold.rounded.w-100(disabled class='hover:bg-blue-700 focus:outline-none focus:shadow-outline', type='submit') Sign In
+            .flex.items-center.justify-between.mt-4
+              a.w-100.text-decoration-none.text-center(href='/signup') Don't have a account? Create One!
+  script(src='/styles/js-bootstrap/bootstrap.js')
+  script(type='module' src='/login.js')
+  script(type='module' src='/app.js')

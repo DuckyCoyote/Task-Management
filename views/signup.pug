@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/styles/css-bootstrap/bootstrap.css')
+    title Sign-Up
+  body
+    main.d-flex.flex-column.align-items-center.bg-black.bg-gradient.w-100.vh-100
+      form#form.w-25.my-auto.bg-white.shadow-md.rounded.p-5(method='POST' action='http://localhost:3000/signup')
+        h1.fs-4.mb-3 Sign Up       
+        if message
+          p.text-danger.text-center.fw-bold.font-monospace.fs-7 #{message}
+        .mb-3.name-container
+          label.form-label(for='name') Name
+          input#name.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='text', placeholder='Ej. Miguel Angel' name='name')
+        .mb-3.lastName-container
+          label.form-label(for='lastName') Last Name
+          input#lastName.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='text', placeholder='Ej. Sanchez Perez' name='lastName')
+        .mb-3.email-container
+          label.form-label(for='email') Email
+          input#email.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='email', placeholder='Ej. name@mail.com' name='email')
+        .mb-3.password-container
+          label.form-label(for='password') Password
+          input#password.form-control.bg-light(class='focus:outline-none focus:shadow-outline', type='password', placeholder='Your password...' name='password')
+        .flex.items-center.justify-between.w-100.gap-3
+          button#button-submit.btn.btn-success.font-weight-bold.rounded.w-50(disabled class='hover:bg-blue-700 focus:outline-none focus:shadow-outline', type='submit') Sign Up
+          a.btn.btn-danger.font-weight-bold.rounded.w-50(href='/') Cancel!
+  script(src='/dist/js-bootstrap/bootstrap.js')
+  script(type="module" src='/signup.js')
+  script(type='module' src='/app.js')

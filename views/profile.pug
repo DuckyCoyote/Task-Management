@@ -1,0 +1,28 @@
+extends ./layout/aside.pug
+block content
+  .w-100.overflow-auto.mx-0.vh-100.scrollbarCustom.container-content
+    h3.text-center.mt-3 Hi #{user.name}, Welcome to your tasks!
+    .d-flex.justify-content-center.align-items-center.w-100.p-5.gap-5.bg-light
+      form.form-profile( enctype="multipart/form-data" )
+        .mb-3.img-form-label
+          label.rounded-circle(for='imgUpload')
+            img.w-100.pointer.profileImage(src=`http://localhost:3000/user/photo/${user.image}`)
+          input(type='file' id='imgUpload' style='display: none;' name='photo')
+        .mb-3
+          label.form-label(for='name') Name
+          input#name.form-control(type='text' value=`${user.name}` disabled)
+        .mb-3
+          label.form-label(for='lastName') Last Name
+          input#lastName.form-control(type='text' value=`${user.lastName}` disabled)
+        .mb-3.emailContainer
+          label.form-label(for='email') Email address
+          input#email.form-control(type='email' placeholder='name@mail.com' value=`${user.email}` disabled)
+          #email.form-text We&apos;ll never share your email with anyone else.
+        .mb-3.passwordContainer
+          label.form-label(for='password') Password
+          input#password.form-control(type='password' disabled)
+        .mb-3.d-flex.justify-content-between
+          button.btn.btn-primary.w-50.btn-editar(type='button') Edit
+          button.btn.btn-success.w-50.btn-patch-profile(type='submit' disabled) Submit
+  script(type="module" src="/profile.js")
+  script(type="module" src="/app.js")

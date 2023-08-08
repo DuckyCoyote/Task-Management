@@ -1,0 +1,87 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{page || 'All'}
+    link(rel='stylesheet', href='/styles/css-bootstrap/bootstrap.side.css')
+    link(rel='stylesheet', href='/styles/styles.custom.css')
+  body.d-flex.w-100.gap-3
+    aside
+      .d-flex.flex-column.flex-shrink-0.p-3.bg-light.vh-100(style='width: 280px;')
+        a.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.link-dark.text-decoration-none(href='/')
+          span.fs-4 Menu
+        hr
+        .tasks.nav.nav-pills.flex-column
+          h4.subtitle-aside TASKS
+          ul.nav.nav-pills.flex-column.mb-auto
+            li.nav-item
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.task-link(href='http://localhost:3000/task')
+                div.link-container
+                  i.fa-solid.fa-list.fs-5.w-3.h-3.i-link
+                div.link-container
+                  span All
+            li.nav-item
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.completed-link(href='http://localhost:3000/task/completed' aria-current='page')
+                div.link-container
+                  i.fa-solid.fa-circle-check.fs-5.w-3.h-3.i-link
+                div.link-container
+                  span Completed
+            li.nav-item
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.pendient-link(href='http://localhost:3000/task/pendient' aria-current='page')
+                div.link-container
+                  i.fa-regular.fa-circle.fs-5.w-3.h-3.i-link
+                div.link-container
+                  span Pendient
+        hr
+        .lists.flex-column.mb-auto
+          h4.subtitle-aside LISTS
+          ul.nav.flex-column
+            li.nav-item
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.personal-link(href='http://localhost:3000/task/personal' aria-current='page')
+                div.link-container.list-icon.list-icon-color-magenta
+                div.link-container
+                  span Personal
+            li
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.work-link(href='http://localhost:3000/task/work' aria-current='page')
+                div.link-container.list-icon.list-icon-color-blue
+                div.link-container
+                  span Work
+            li
+              a.nav-link.nav-link-custom.link-aside.link-dark.d-flex.gap-3.align-items-center.services-link(href='http://localhost:3000/task/services' aria-current='page')
+                div.link-container.list-icon.list-icon-color-yellow
+                div.link-container
+                  span Services
+        hr
+        .dropdown
+          a#dropdownUser2.d-flex.align-items-center.link-dark.text-decoration-none.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-expanded='false')
+            img.rounded-circle.me-2(src=`http://localhost:3000/user/photo/${user.image}` alt='' width='32' height='32')
+            strong mdo
+          ul.dropdown-menu.text-small.shadow(aria-labelledby='dropdownUser2')
+            li
+              a.dropdown-item(href='/user') Profile
+            li
+              hr.dropdown-divider
+            li
+              a.dropdown-item(href='/signout') Sign out
+    block content
+    if (page != 'Profile')
+      .container.mx-0.mt-3.w-50.bg-light.rounded
+        form(method='post' action='http://localhost:3000/task/add-task')
+          h2 Add Task
+          .mb-3
+            label.form-label(for='taskDescription') Task
+            textarea#taskDescription.form-control.task-description(rows='4' name="description")
+          .form-check
+            input#personal.form-check-input(type='radio' name='idList' value='1' checked='')
+            label.form-check-label(for='personal') Personal
+          .form-check
+            input#work.form-check-input(type='radio' name='idList' value='2')
+            label.form-check-label(for='work') Work
+          .form-check.mb-4
+            input#services.form-check-input(type='radio' name='idList' value='3')
+            label.form-check-label(for='services') Services
+          button.btn.btn-warning.text-light.fw-bold.button-submit-task.disabled(type='submit') Submit
+    script(type='module' src='/layout/aside.js')
+    script(src='/styles/js-bootstrap/bootstrap.side.js')
+    script(src="https://kit.fontawesome.com/9492583dfe.js" crossorigin="anonymous")
