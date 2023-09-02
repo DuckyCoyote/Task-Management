@@ -7,7 +7,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const { sessionHandler } = require('./middleware/auth/auth.handler');
-
 const {
   errorHandler,
   boomErrorHandler,

@@ -9,8 +9,8 @@ async function hashPassword (salt, password) {
   const hash = await Bcrypt.hash(password, saltRounds);
   const comparePasssword = await Bcrypt.compare(password, hash);
 
-  console.log(comparePasssword)
-}
+  console.log(comparePasssword) 
+} 
 
 hashPassword(saltRounds, password);
 
