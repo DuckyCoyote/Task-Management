@@ -11,7 +11,6 @@ const PORT = config.PORT;
 const URI = `mariadb://${USER}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}`;
 
 const sequelize = new Sequelize(URI, {
-  dialect: 'mariadb',
   logging: (msg) => console.log(msg),
 });
 
