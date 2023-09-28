@@ -49,5 +49,5 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(PORT, (req, res, next) => {
-  console.log('Server listening on port: ' + PORT);
+  console.log('Server listening on port: :D' + PORT);
 });
