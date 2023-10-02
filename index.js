@@ -17,7 +17,7 @@ const {
 const app = express();
 
 const PORT = 3000;
-
+const uno = 1;
 const WHITELIST = ['http://localhost:3000'];
 const corsOptions = {
   origin: (origin, callback) => {

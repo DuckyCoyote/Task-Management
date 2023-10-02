@@ -1,0 +1,28 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "duckycoyote",
+      "database": "duckycoyote",
+      "username": "duckycoyote",
+      "password": "1234"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "maraidb",
+      "database": "duckycoyote",
+      "username": "root",
+      "password": "1234"
+    }
+  ]
+}
